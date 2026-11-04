@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reading harness: connecting proposals to real execution">
+  <meta name="theme-color" content="#fbfaf7">
+  <title>Reading harness｜rsi.ziming</title>
+  <script>
+    (() => {
+      let saved;
+      try { saved = localStorage.getItem("theme"); } catch {}
+      const theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#111210" : "#fbfaf7");
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="rsi.ziming home">
+      <span class="wordmark-mark" aria-hidden="true">rz</span>
+      <span class="wordmark-name"><span class="brand-person" lang="en">rsi.ziming</span></span>
+    </a>
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Reading</a>
+        <a href="index.html" aria-current="page">Blog</a>
+        <a class="mobile-hidden" href="../about/index.html">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.2"></circle><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6 16 16M16 4l-1.4 1.4M5.4 14.6 4 16"></path></svg>
+        <svg class="moon-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 12.8A7 7 0 0 1 7.2 3.5a7 7 0 1 0 9.3 9.3Z"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="article-shell">
+      <p class="eyebrow">READING</p>
+      <h1>Reading harness: connecting proposals to real execution</h1>
+      <p class="article-meta">2026.10.28 · 6 min · Sample post — replace with your writing</p>
+
+      <div class="article-body">
+        <p>Models are good at proposing the next step. What changes the world is the execution layer. A harness wires proposals, tools, state, and acceptance into a recoverable loop.</p>
+        <h2>A three-way split</h2>
+        <p><strong>Prompt</strong> defines intent and constraints. <strong>Context</strong> decides what this turn can see. <strong>Runtime</strong> owns calls, waits, failures, and retries. When those blur, debugging collapses into “write another prompt.”</p>
+        <h2>Acceptance evidence</h2>
+        <p>Delivery can’t stop at generated text. Were files written correctly? Did tests pass? Are external side effects idempotent? Those need independent checkers — not model self-grading.</p>
+        <h2>Questions to take away</h2>
+        <ul>
+          <li>Where does state live, and how do you resume after a crash?</li>
+          <li>Which actions need human approval, and which can run automatically?</li>
+          <li>On failure, can the evidence trail let someone locate the fault in ten minutes?</li>
+        </ul>
+        <p>This page is a layout sample. Swap in your own reading notes when ready.</p>
+      </div>
+
+      <section class="comments" aria-labelledby="comments-title">
+        <h2 id="comments-title">Comments</h2>
+        <p class="comments-note">
+          Giscus is wired below as a placeholder.
+          At <a href="https://giscus.app/" rel="noopener">giscus.app</a>, pick your repo and Discussions category, then replace
+          <code>data-repo</code>, <code>data-repo-id</code>, <code>data-category</code>, and <code>data-category-id</code>.
+        </p>
+        <div class="giscus"></div>
+        <script src="https://giscus.app/client.js"
+          data-repo="YOUR_GITHUB_USER/YOUR_REPO"
+          data-repo-id="YOUR_REPO_ID"
+          data-category="Announcements"
+          data-category-id="YOUR_CATEGORY_ID"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a href="../index.html" class="footer-name"><span class="brand-person" lang="en">rsi.ziming</span></a>
+      <p>Think, distill, practice. Let understanding take time.</p>
+      <p lang="en">Reflections on AI, research, and the way we grow.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../index.html">Reading</a>
+      <a href="index.html">Blog</a>
+      <a href="../about/index.html">About</a>
+    </nav>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

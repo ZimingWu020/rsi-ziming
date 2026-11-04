@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About rsi.ziming — Ziming Wu">
+  <meta name="theme-color" content="#fbfaf7">
+  <title>About｜rsi.ziming</title>
+  <script>
+    (() => {
+      let saved;
+      try { saved = localStorage.getItem("theme"); } catch {}
+      const theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#111210" : "#fbfaf7");
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="rsi.ziming home">
+      <span class="wordmark-mark" aria-hidden="true">rz</span>
+      <span class="wordmark-name"><span class="brand-person" lang="en">rsi.ziming</span></span>
+    </a>
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Reading</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="index.html" aria-current="page">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.2"></circle><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6 16 16M16 4l-1.4 1.4M5.4 14.6 4 16"></path></svg>
+        <svg class="moon-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 12.8A7 7 0 0 1 7.2 3.5a7 7 0 1 0 9.3 9.3Z"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-shell about">
+      <header class="page-intro">
+        <div>
+          <p class="eyebrow">ABOUT THIS GARDEN</p>
+          <h1>Hi, I’m <span class="brand-person" lang="en">Ziming</span>.</h1>
+        </div>
+        <p class="intro-copy">I write here about AI, learning, and practice — and how those judgments get revised by new evidence.</p>
+      </header>
+
+      <div class="about-grid">
+        <aside class="about-aside">
+          <span>RECORDING PRINCIPLES</span>
+          <p>Record how beliefs change, not only conclusions.</p>
+        </aside>
+        <article class="about-article">
+          <h2>What this is</h2>
+          <p>rsi.ziming is Ziming Wu’s personal homepage and blog. It focuses on large-model algorithms, reasoning, and engineering practice — keeping checkable observations as the field moves. It doesn’t chase fleeting trends; it prioritizes thinking, distillation, and hands-on verification.</p>
+          <p class="english-mission" lang="en">A quiet garden for research notes: claims should stay revisable, sources stay visible, and practice stays close to judgment.</p>
+
+          <h2>How to read</h2>
+          <p>Browse by time on the <a href="../blog/index.html">blog list</a>, or start from the featured posts on the home page. Each article ends with comments via Giscus.</p>
+
+          <h2>Understanding has no perfect tense</h2>
+          <p>“Seed” is intuition. “Growing” is still under revision. “Evergreen” is only temporarily stable. Record facts, mark inferences, keep sources — so later readers, and a future self, can re-check.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a href="../index.html" class="footer-name"><span class="brand-person" lang="en">rsi.ziming</span></a>
+      <p>Think, distill, practice. Let understanding take time.</p>
+      <p lang="en">Reflections on AI, research, and the way we grow.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../index.html">Reading</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="index.html">About</a>
+    </nav>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>
