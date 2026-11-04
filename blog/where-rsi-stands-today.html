@@ -179,8 +179,107 @@
         <p>Designs of this kind reduce behavior that the framework must prescribe in advance; they address <em>modifiability</em>. Sustained improvement still needs evaluation, selection, and accumulation. They complement harness self-modification and meta-level RSI research, but should not be read as the climax or sole entry point of the RSI thread.</p>
         <p>Taken together, I read recent progress as agent engineering beginning to automate: organizing experience, designing workflows, and editing code are increasingly done with the system’s participation. Work such as Hyperagents and AIDE² pushes one layer deeper—whether the improvement process itself can be improved. They already offer runnable mechanisms and partial experimental results; reliable recursive acceleration still needs stronger evidence.</p>
         <hr>
-        <p><em>Compiled on November 3, 2026; application material added November 4; narrative reframed the same day so overall RSI is the main subject and programmable runtimes (including Fibona) appear as a parallel class of techniques. Emphasis on 2025–2026 progress. Experimental results are from the cited papers and were not independently reproduced. Fibona is not the organizing object of this note.</em></p>
-              </div>
+        <p><em>Compiled on November 3, 2026; application material added November 4; narrative reframed the same day so overall RSI is the main subject and programmable runtimes (including Fibona) appear as a parallel class of techniques. Emphasis on 2025–2026 progress. Experimental results are from the cited papers and were not independently reproduced. Reference numbers follow the index used in the Fibona post for lookup only; that post is not the organizing object of this note.</em></p>
+        <h2>Reference navigation: regrouped by theme</h2>
+        <h3>A. Direct self-modification and meta-level improvement</h3>
+        <ul>
+        <li><strong>[3] STOP</strong> — Zelikman et al., 2023. <a href="https://arxiv.org/abs/2310.02304" rel="noopener">Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation</a>. Entry question: how can a program optimizer optimize itself?</li>
+        <li><strong>[15] Gödel Agent</strong> — Yin et al., 2024. <a href="https://arxiv.org/abs/2410.04444" rel="noopener">Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement</a>. Focus: self-reference and modifying one’s own logic.</li>
+        <li><strong>[16] SICA</strong> — Robeyns, Szummer &amp; Aitchison, 2025. <a href="https://arxiv.org/abs/2504.15228" rel="noopener">A Self-Improving Coding Agent</a>. Focus: self-editing for coding agents.</li>
+        <li><strong>[4] DGM</strong> — Zhang et al., 2025. <a href="https://arxiv.org/abs/2505.22954" rel="noopener">Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents</a>. Focus: empirical validation, archives, and open-ended exploration.</li>
+        <li><strong>[6] Hyperagents</strong> — Zhang et al., 2026. <a href="https://arxiv.org/abs/2603.19461" rel="noopener">Hyperagents</a>. Focus: joint modification of task and meta layers; the version checked here is v2 dated 2026-11-01.</li>
+        <li><strong>[2] AIDE²</strong> — Srikanth et al., 2026. <a href="https://arxiv.org/abs/2609.26457" rel="noopener">Recursive self-improvement of AI research agents</a>. Focus: research efficiency, continued improvement, and the ignition test.</li>
+        </ul>
+        <h3>B. Agent design, workflows, and harness optimization</h3>
+        <ul>
+        <li><strong>[5] ADAS</strong> — Hu, Lu &amp; Clune, 2024. <a href="https://arxiv.org/abs/2408.08435" rel="noopener">Automated Design of Agentic Systems</a>. Code-represented agent design spaces.</li>
+        <li><strong>[17] AFlow</strong> — Zhang et al., 2024. <a href="https://arxiv.org/abs/2410.10762" rel="noopener">AFlow: Automating Agentic Workflow Generation</a>. Workflow search with execution feedback.</li>
+        <li><strong>[18] Meta-Harness</strong> — Lee et al., 2026. <a href="https://arxiv.org/abs/2603.28052" rel="noopener">Meta-Harness: End-to-End Optimization of Model Harnesses</a>. Optimizing frameworks with source, scores, and full traces.</li>
+        <li><strong>[19] Self-Harness</strong> — Zhang et al., 2026. <a href="https://arxiv.org/abs/2606.09498" rel="noopener">Self-Harness: Harnesses That Improve Themselves</a>. Framework edits driven by model-specific weaknesses.</li>
+        <li><strong>[20] TTHE</strong> — Nie et al., 2026. <a href="https://arxiv.org/abs/2607.08124" rel="noopener">TTHE: Test-Time Harness Evolution</a>. Test-time adaptation without final-answer labels; the version checked here is v2 dated 2026-10-12.</li>
+        </ul>
+        <h3>C. Memory, skills, and context evolution</h3>
+        <ul>
+        <li><strong>[24] Reflexion</strong> — Shinn et al., 2023. <a href="https://arxiv.org/abs/2303.11366" rel="noopener">Reflexion: Language Agents with Verbal Reinforcement Learning</a>. Verbal feedback and reflective memory.</li>
+        <li><strong>[22] Voyager</strong> — Wang et al., 2023. <a href="https://arxiv.org/abs/2305.16291" rel="noopener">Voyager: An Open-Ended Embodied Agent with Large Language Models</a>. Automatic curricula and executable skill libraries.</li>
+        <li><strong>[25] MemGPT</strong> — Packer et al., 2023. <a href="https://arxiv.org/abs/2310.08560" rel="noopener">MemGPT: Towards LLMs as Operating Systems</a>. Hierarchical memory and virtual context management.</li>
+        <li><strong>[23] Alita</strong> — Qiu et al., 2025. <a href="https://arxiv.org/abs/2505.20286" rel="noopener">Alita: Generalist Agent Enabling Scalable Agentic Reasoning with Minimal Predefinition and Maximal Self-Evolution</a>. A generalist-agent path with minimal predefinition.</li>
+        <li><strong>[1] ACE</strong> — Zhang et al., 2025. <a href="https://arxiv.org/abs/2510.04618" rel="noopener">Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models</a>. Incrementally maintained context playbooks.</li>
+        <li><strong>[30] MCE</strong> — Ye et al., 2026. <a href="https://arxiv.org/abs/2601.21557" rel="noopener">Meta Context Engineering via Agentic Skill Evolution</a>. Co-evolution of context artifacts and engineering skills.</li>
+        </ul>
+        <h3>D. Programmable runtimes and product implementations</h3>
+        <ul>
+        <li><strong>[21] CodeAct</strong> — Wang et al., 2024. <a href="https://arxiv.org/abs/2402.01030" rel="noopener">Executable Code Actions Elicit Better LLM Agents</a>. Executable code as the action interface.</li>
+        <li><strong>[7] RLM</strong> — Zhang, Kraska &amp; Khattab, 2025. <a href="https://arxiv.org/abs/2512.24601" rel="noopener">Recursive Language Models</a>. Programmatic long-context handling and recursive calls.</li>
+        <li><strong>Fibona Agent</strong> — <a href="https://fibona.ai/blog/fibona-agent" rel="noopener">Fibona Agent</a>. One implementation of self-authored next steps and a programmable control surface; discussed as a peer of the items above, not as this note’s main subject.</li>
+        <li><strong>[8] Prime Agent</strong> — Karten et al., 2026. <a href="https://www.primeintellect.ai/blog/prime-agent" rel="noopener">Prime Agent: A self-improving RLM agent</a>. An engineering stack combining RLM and Continual Harness.</li>
+        <li><strong>[29] DeepSeek Harness</strong> — DeepSeek-AI, 2026. <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener">DeepSeek Harness: Everything is a Plugin</a>. A pluginized runtime; the repository is marked developer preview.</li>
+        <li><strong>[34] Hermes Agent</strong> — Nous Research. <a href="https://hermes-agent.nousresearch.com/" rel="noopener">Hermes Agent official site</a>. Product entry for persistent memory and skill accumulation.</li>
+        </ul>
+        <h3>E. Foundational agent loops, tools, and API background</h3>
+        <p>These materials explain how agents work; citation alone does not make them RSI research.</p>
+        <ul>
+        <li><strong>[11] ReAct</strong> — Yao et al., ICLR 2023; preprint 2022. <a href="https://arxiv.org/abs/2210.03629" rel="noopener">ReAct: Synergizing Reasoning and Acting in Language Models</a>. The foundational reason–act interleaving paradigm.</li>
+        <li><strong>[9] Pi</strong> — <a href="https://github.com/badlogic/pi-mono/blob/main/packages/agent/README.md" rel="noopener">Agent core documentation</a>. Agent core docs.</li>
+        <li><strong>[10] OpenClaw</strong> — <a href="https://docs.openclaw.ai/concepts/agent-loop" rel="noopener">Agent loop</a>. Runtime-loop documentation.</li>
+        <li><strong>[12] Anthropic</strong> — 2025. <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk" rel="noopener">Building agents with the Claude Agent SDK</a>. Framework-engineering background.</li>
+        <li><strong>[13] Michael Bolin / OpenAI</strong> — 2026. <a href="https://openai.com/index/unrolling-the-codex-agent-loop/" rel="noopener">Unrolling the Codex agent loop</a>. An engineering teardown of an agent loop.</li>
+        <li><strong>[14] OpenAI</strong> — <a href="https://developers.openai.com/api/docs/guides/tools-web-search" rel="noopener">Web search</a>. Hosted-tool API docs.</li>
+        <li><strong>[28] OpenAI</strong> — <a href="https://developers.openai.com/api/docs/guides/function-calling" rel="noopener">Function calling</a>. Function-calling API docs.</li>
+        <li><strong>[31] Claude Code</strong> — <a href="https://github.com/anthropics/claude-code" rel="noopener">GitHub repository</a>. Coding-agent product reference.</li>
+        <li><strong>[32] Codex</strong> — <a href="https://github.com/openai/codex" rel="noopener">GitHub repository</a>. Coding-agent product reference.</li>
+        <li><strong>[33] OpenClaw</strong> — <a href="https://github.com/openclaw/openclaw" rel="noopener">GitHub repository</a>. Agent-system product reference.</li>
+        </ul>
+        <h3>F. Philosophical background</h3>
+        <ul>
+        <li><strong>[26] Personal identity</strong> — <a href="https://en.wikipedia.org/wiki/Personal_identity" rel="noopener">Wikipedia</a>. Background on continuity of the “self”; not a technical experimental basis.</li>
+        <li><strong>[27] Ship of Theseus</strong> — <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus" rel="noopener">Wikipedia</a>. Thought experiment on whether a system remains the same after its parts are replaced.</li>
+        </ul>
+        <h3>Suggested reading order</h3>
+
+        <figure class="article-figure">
+                  <svg viewBox="0 0 680 220" role="img" aria-labelledby="fig-4-title fig-4-desc" xmlns="http://www.w3.org/2000/svg">
+                    <title id="fig-4-title">Suggested reading path of six papers</title>
+                    <desc id="fig-4-desc">Reading path: ACE, Meta-Harness, DGM, Hyperagents, AIDE squared, then TTHE.</desc>
+                    <rect x="0" y="0" width="680" height="220" fill="transparent"/>
+                    <!-- row 1 -->
+                    <rect x="40" y="36" width="140" height="52" rx="10" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.75"/>
+                    <text x="110" y="58" text-anchor="middle" fill="var(--text)" font-family="var(--sans), system-ui, sans-serif" font-size="13" font-weight="600">ACE</text>
+                    <text x="110" y="74" text-anchor="middle" fill="var(--text-soft)" font-family="var(--sans), system-ui, sans-serif" font-size="11">experience</text>
+                    <path d="M188 62 H218" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+                    <path d="M210 56 L220 62 L210 68" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <rect x="228" y="36" width="160" height="52" rx="10" fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5"/>
+                    <text x="308" y="58" text-anchor="middle" fill="var(--text)" font-family="var(--sans), system-ui, sans-serif" font-size="13" font-weight="600">Meta-Harness</text>
+                    <text x="308" y="74" text-anchor="middle" fill="var(--text-soft)" font-family="var(--sans), system-ui, sans-serif" font-size="11">harness</text>
+                    <path d="M396 62 H426" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+                    <path d="M418 56 L428 62 L418 68" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <rect x="436" y="36" width="140" height="52" rx="10" fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5"/>
+                    <text x="506" y="58" text-anchor="middle" fill="var(--text)" font-family="var(--sans), system-ui, sans-serif" font-size="13" font-weight="600">DGM</text>
+                    <text x="506" y="74" text-anchor="middle" fill="var(--text-soft)" font-family="var(--sans), system-ui, sans-serif" font-size="11">evolve</text>
+                    <!-- connector down -->
+                    <path d="M506 88 V108 H110 V118" stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+                    <path d="M104 110 L110 120 L116 110" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <!-- row 2 -->
+                    <rect x="40" y="124" width="140" height="52" rx="10" fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5"/>
+                    <text x="110" y="146" text-anchor="middle" fill="var(--text)" font-family="var(--sans), system-ui, sans-serif" font-size="13" font-weight="600">Hyperagents</text>
+                    <text x="110" y="162" text-anchor="middle" fill="var(--text-soft)" font-family="var(--sans), system-ui, sans-serif" font-size="11">meta</text>
+                    <path d="M188 150 H218" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+                    <path d="M210 144 L220 150 L210 156" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <rect x="228" y="124" width="160" height="52" rx="10" fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5"/>
+                    <text x="308" y="146" text-anchor="middle" fill="var(--text)" font-family="var(--sans), system-ui, sans-serif" font-size="13" font-weight="600">AIDE²</text>
+                    <text x="308" y="162" text-anchor="middle" fill="var(--text-soft)" font-family="var(--sans), system-ui, sans-serif" font-size="11">validate</text>
+                    <path d="M396 150 H426" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+                    <path d="M418 144 L428 150 L418 156" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <rect x="436" y="124" width="140" height="52" rx="10" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.75"/>
+                    <text x="506" y="146" text-anchor="middle" fill="var(--text)" font-family="var(--sans), system-ui, sans-serif" font-size="13" font-weight="600">TTHE</text>
+                    <text x="506" y="162" text-anchor="middle" fill="var(--text-soft)" font-family="var(--sans), system-ui, sans-serif" font-size="11">adapt</text>
+                    <text x="340" y="204" text-anchor="middle" fill="var(--text-soft)" font-family="var(--sans), system-ui, sans-serif" font-size="12">six papers · one path through the stack</text>
+                  </svg>
+                  <figcaption>Suggested path: ACE → Meta-Harness → DGM → Hyperagents → AIDE² → TTHE.</figcaption>
+                </figure>
+
+        <p>If you read only six papers, try <strong>ACE → Meta-Harness → DGM → Hyperagents → AIDE² → TTHE</strong>: experience accumulation, framework optimization, self-modification, meta-level modification, recursive validation, and unlabeled online adaptation. For the programmable control-surface line, read CodeAct and RLM in parallel, and optionally <a href="https://fibona.ai/blog/fibona-agent" rel="noopener">Fibona</a> or Prime Agent, to see what <em>modifiability</em> solves versus what <em>sustained self-improvement</em> still requires.</p>
+      </div>
 
       <section class="comments" aria-labelledby="comments-title">
         <h2 id="comments-title">Comments</h2>
