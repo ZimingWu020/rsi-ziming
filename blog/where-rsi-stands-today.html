@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Talk of RSI often conjures a runaway loop. Recent research is more concrete: systems rewrite the harness around the model.">
+  <meta name="theme-color" content="#fbfaf7">
+  <title>Where RSI Stands Today｜rsi.ziming</title>
+  <script>
+    (() => {
+      let saved;
+      try { saved = localStorage.getItem("theme"); } catch {}
+      const theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#111210" : "#fbfaf7");
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="rsi.ziming home">
+      <span class="wordmark-mark" aria-hidden="true">rz</span>
+      <span class="wordmark-name"><span class="brand-person" lang="en">rsi.ziming</span></span>
+    </a>
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Reading</a>
+        <a href="index.html" aria-current="page">Blog</a>
+        <a class="mobile-hidden" href="../about/index.html">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.2"></circle><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6 16 16M16 4l-1.4 1.4M5.4 14.6 4 16"></path></svg>
+        <svg class="moon-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 12.8A7 7 0 0 1 7.2 3.5a7 7 0 1 0 9.3 9.3Z"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="article-shell">
+      <p class="eyebrow">RESEARCH NOTE</p>
+      <h1>Where RSI Stands Today: AI Systems That Rewrite How They Work</h1>
+      <p class="article-meta">2026.11.04 · 14 min</p>
+
+      <div class="article-body">
+        <p>Talk of recursive self-improvement (RSI) often conjures a dramatic picture: an AI improves itself, grows stronger, then improves again, until capability accelerates in a runaway loop. Recent research is more concrete. What these systems usually modify is not the large model itself, but the code around it—how to read materials, call tools, store experience, and recover from failure.</p>
+        <p>That layer of code is often called the <em>harness</em>: the agent’s runtime framework. With the same model, different frameworks can produce very different task performance. Parts of the stack that engineers once designed by hand are starting to become objects of AI-driven change.</p>
+        <p>The references in <a href="https://fibona.ai/blog/fibona-agent" rel="noopener">Fibona Agent</a> sketch this research thread. Following it, progress on RSI can begin with experience accumulation—but the turn that matters most is when a system starts changing the <em>methods</em> that produce the next round of improvement.</p>
+        <h2>Experience need not live in model weights</h2>
+        <p>Early self-improvement took a pragmatic route: keep the model fixed, and first make prior experience usable.</p>
+        <p>Reflexion turns task feedback into written reflections for later attempts; Voyager, in Minecraft, saves successful behaviors as executable skills. One leaves experience; the other leaves reusable programs. Both let gains from one task influence the next. <a href="https://arxiv.org/abs/2303.11366" rel="noopener">Reflexion</a>, <a href="https://arxiv.org/abs/2305.16291" rel="noopener">Voyager</a></p>
+        <p>As experience grows, organization becomes the bottleneck. Models can only take in a limited amount of information at once; that currently visible information is the <em>context</em>. ACE maintains context as a continuously updated playbook, so repeated compression into summaries does not erase detail. In 2026, MCE jointly optimizes both the context and the skills that organize it: the system accumulates experience and also revises how experience is distilled. <a href="https://arxiv.org/abs/2510.04618" rel="noopener">ACE</a>, <a href="https://arxiv.org/abs/2601.21557" rel="noopener">MCE</a></p>
+        <p>These methods show that performance can improve without changing model parameters. They also have limits: even if the system “remembers” that it should test before submitting, an agent may still skip verification. More reliable behavior change sometimes requires editing the execution flow itself.</p>
+        <h2>From writing prompts to rewriting the framework</h2>
+        <p>Letting AI design workflows is not new in 2026. ADAS already represented agents as code and had another agent search for better designs; AFlow improves workflows through search and execution feedback. Both turn pipelines that once depended on hand-built scaffolding into programs that can be evaluated and iterated. <a href="https://arxiv.org/abs/2408.08435" rel="noopener">ADAS</a>, <a href="https://arxiv.org/abs/2410.10762" rel="noopener">AFlow</a></p>
+        <p>Newer work focuses more on <em>what evidence</em> drives a change. Meta-Harness lets a proposer inspect historical versions of source code, scores, and full execution traces. Knowing only that something “failed” is usually not enough; whether the failure came from missed retrieval, tool misuse, or lost context has to be read from the process. <a href="https://arxiv.org/abs/2603.28052" rel="noopener">Meta-Harness</a></p>
+        <p>Self-Harness turns that idea into a concrete loop: locate the current model’s weaknesses in the traces, propose small edits, then run regression tests to check whether existing capabilities break. The framework can then adapt to how a model actually behaves, rather than forcing every model into one hand-designed template. <a href="https://arxiv.org/abs/2606.09498" rel="noopener">Self-Harness</a></p>
+        <p>Even here, automated design should be distinguished from recursive self-improvement. A fixed optimizer that keeps emitting new frameworks can cut human development cost without improving the optimizer itself. Recursion goes further: the program responsible for improving the system must also fall inside the scope of modification.</p>
+        <h2>The improver becomes something to improve</h2>
+        <p>STOP, in 2023, posed a direct experiment: write a program optimizer, then have it optimize its own code. The optimizer might not only emit better programs; it might also acquire a more effective search method. The authors were clear, though, that the underlying language model did not change—so this was not yet full RSI as they defined it. Many papers today use a broader, system-level definition; that difference matters when reading the literature. <a href="https://arxiv.org/abs/2310.02304" rel="noopener">STOP</a></p>
+        <p>DGM combines self-modification with evolutionary search. It keeps multiple agent versions, chooses starting points among them to spawn new variants, and validates candidates with task performance. Keeping historical branches helps prevent search from collapsing too early onto whatever looks best at the moment. <a href="https://arxiv.org/abs/2505.22954" rel="noopener">DGM</a></p>
+        <p>Hyperagents put the task-executing agent and a “meta-agent” that edits it inside the same editable program. The meta-agent can modify the task agent <em>and</em> itself, so how future improvements are generated is no longer fully fixed. The paper reports that some meta-level improvements transfer across domains and accumulate across runs. <a href="https://arxiv.org/abs/2603.19461" rel="noopener">Hyperagents</a></p>
+        <p>This touches the core hope for RSI: gains from one improvement can help produce the next. But better task performance does not automatically prove better <em>improvement</em> ability. An agent that solves more coding problems is not necessarily better at designing agents.</p>
+        <p>AIDE² tests that distinction. A September 2026 paper reports an 8-day run that produced 99 rewrite proposals, 7 of which were accepted; gains were also checked on tasks that did not participate in selection. The evaluation controlled for budget to rule out advantages that come only from more compute. <a href="https://arxiv.org/html/2609.26457v1" rel="noopener">AIDE²</a></p>
+        <p>Researchers then placed the improved agent in the role that drives self-improvement, asking whether it was more effective than the original. That “ignition test” has not yet yielded a firm conclusion. There is evidence of continued improvement; recursive acceleration remains to be shown. <a href="https://arxiv.org/html/2609.26457v1#S3.SS6" rel="noopener">AIDE²: Ignition test</a></p>
+        <h2>Evaluation may be the hardest part</h2>
+        <p>These experiments rest on a premise: the system can tell a useful change from a harmful one. On real tasks, that condition is often incomplete. Successful execution does not mean a correct result; passing the current tests does not guarantee the same edits will hold on a new batch of tasks.</p>
+        <p>TTHE tries to keep editing the framework at test time without final-answer labels. It proposes candidates from execution traces, selects among them using signals from execution, and carries the chosen framework into the next batch of tasks. The underlying model stays fixed. <a href="https://arxiv.org/abs/2607.08124" rel="noopener">TTHE</a></p>
+        <p>That makes adaptation closer to real use—and exposes the limits of feedback. The paper finds that useful candidates were sometimes generated but not selected. A system may be able to propose good edits yet lack a reliable basis for judging <em>why</em> they are good. <a href="https://arxiv.org/html/2607.08124v2#S6" rel="noopener">TTHE: Limitations</a></p>
+        <p>So when watching RSI progress, evaluation design matters as much as code-generation ability. Whether gains appear on held-out tasks, whether compute cost is controlled, and whether old capabilities regress are more persuasive than a single rising score curve. Letting an agent rewrite itself should not mean letting it rewrite the scoring rules at will.</p>
+        <h2>Where this is used today</h2>
+        <p>From the public materials checked for this note, what has entered products is mainly continuous adjustment of memory, skills, and workflows; modifying one’s own code in ways that raise the <em>efficiency of self-improvement</em> remains mostly research. The two should not be treated as equally mature.</p>
+        <p>Software development is a direct landing point. The open-source coding tool Prime Agent offers a `/refine` flow: read its own execution logs, make small adjustments to prompts, memory, skills, or sub-agent configuration, and persist them for later sessions. Official examples include saving experience from test failures as memory and callable skills. Methods discovered during development need not be rebuilt from scratch each time. Having the capability, though, is not the same as proving it steadily raises development efficiency on every project. <a href="https://www.primeintellect.ai/blog/prime-agent" rel="noopener">Prime Agent</a></p>
+        <p>Long-running personal assistants take a similar path. Hermes Agent already ships desktop and cloud use, with cross-session memory, automatic skill generation, and scheduled reporting. Its practical role is letting an assistant keep project knowledge and working methods across ongoing collaboration. What relates to self-improvement here is the accumulation and reuse of experience; scheduled jobs and chat integrations are not RSI by themselves. <a href="https://hermes-agent.nousresearch.com/" rel="noopener">Hermes Agent</a></p>
+        <p>Closer to RSI in the stricter sense are tools for research and algorithm development. AIDE² applies self-improved research agents to machine-learning engineering, combinatorial optimization, and scientific computing. In experiments based on WeatherBench 2, the agent optimized the numerical implementation of a physics-based weather model, testing whether research skill formed on other tasks would transfer. That is concrete application validation—but still a controlled experiment, not a claim of deployment in day-to-day operational forecasting. <a href="https://arxiv.org/html/2609.26457v1" rel="noopener">AIDE²</a></p>
+        <p>Another use is maintaining the agent itself. Self-Harness has been tried on software-repair, terminal-operation, and application-interaction benchmarks to improve patch verification, runtime control, and application-state reading automatically. For development teams, this line of work may reduce the need to inspect every failure log and hand-edit the framework; existing evidence comes mainly from benchmarks and is not yet enough to infer unsupervised maintenance of production systems. <a href="https://arxiv.org/abs/2606.09498" rel="noopener">Self-Harness</a></p>
+        <h2>What Fibona supplies is room to change</h2>
+        <p>In this lineage, Fibona’s place is clearer: it mainly asks which runtime mechanisms an agent can control.</p>
+        <p>CodeAct already lets models express actions as executable code; RLM lets a model read and split long context programmatically and recursively call the model on fragments. That recursion is a way of solving tasks; it is not self-improvement by itself. <a href="https://arxiv.org/abs/2402.01030" rel="noopener">CodeAct</a>, <a href="https://arxiv.org/abs/2512.24601" rel="noopener">RLM</a></p>
+        <p>Fibona pushes control further into generated code: the agent writes the next step and decides how to construct the next model call. A small fixed core executes and triggers repair on failure; a persistent Python session keeps state across earlier steps. <a href="https://fibona.ai/blog/fibona-agent" rel="noopener">Fibona Agent</a></p>
+        <p>This design reduces behavior that the framework must prescribe in advance—but it does not, by itself, mean the system will keep getting stronger. Self-construction addresses <em>modifiability</em>; sustained improvement still needs evaluation, selection, and accumulation.</p>
+        <p>Taken together, I read recent progress as agent engineering beginning to automate: organizing experience, designing workflows, and editing code are increasingly done with the system’s participation. Work such as Hyperagents and AIDE² pushes one layer deeper—whether the improvement process itself can be improved. They already offer runnable mechanisms and partial experimental results; reliable recursive acceleration still needs stronger evidence.</p>
+        <hr>
+        <p><em>Compiled on November 3, 2026; application material added November 4. Scoped to Fibona’s cited references, with emphasis on 2025–2026 progress. Experimental results are from the cited papers and were not independently reproduced.</em></p>
+        <h2>Reference navigation: Fibona’s 34 items, regrouped by theme</h2>
+        <p>Numbering from the Fibona original is kept for lookup. Core mechanism papers cited in the body were checked against their arXiv abstracts or related text; product notes were checked against official descriptions. Foundational tools, API docs, and philosophy entries are indexed as original citations, not as evidence of RSI effects. Years are, in principle, first-publication years; for living documents, the access year is not treated as a publication year.</p>
+        <h3>A. Direct self-modification and meta-level improvement</h3>
+        <ul>
+        <li><strong>[3] STOP</strong> — Zelikman et al., 2023. <a href="https://arxiv.org/abs/2310.02304" rel="noopener">Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation</a>. Entry question: how can a program optimizer optimize itself?</li>
+        <li><strong>[15] Gödel Agent</strong> — Yin et al., 2024. <a href="https://arxiv.org/abs/2410.04444" rel="noopener">Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement</a>. Focus: self-reference and modifying one’s own logic.</li>
+        <li><strong>[16] SICA</strong> — Robeyns, Szummer &amp; Aitchison, 2025. <a href="https://arxiv.org/abs/2504.15228" rel="noopener">A Self-Improving Coding Agent</a>. Focus: self-editing for coding agents.</li>
+        <li><strong>[4] DGM</strong> — Zhang et al., 2025. <a href="https://arxiv.org/abs/2505.22954" rel="noopener">Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents</a>. Focus: empirical validation, archives, and open-ended exploration.</li>
+        <li><strong>[6] Hyperagents</strong> — Zhang et al., 2026. <a href="https://arxiv.org/abs/2603.19461" rel="noopener">Hyperagents</a>. Focus: joint modification of task and meta layers; the version checked here is v2 dated 2026-11-01.</li>
+        <li><strong>[2] AIDE²</strong> — Srikanth et al., 2026. <a href="https://arxiv.org/abs/2609.26457" rel="noopener">Recursive self-improvement of AI research agents</a>. Focus: research efficiency, continued improvement, and the ignition test.</li>
+        </ul>
+        <h3>B. Agent design, workflows, and harness optimization</h3>
+        <ul>
+        <li><strong>[5] ADAS</strong> — Hu, Lu &amp; Clune, 2024. <a href="https://arxiv.org/abs/2408.08435" rel="noopener">Automated Design of Agentic Systems</a>. Code-represented agent design spaces.</li>
+        <li><strong>[17] AFlow</strong> — Zhang et al., 2024. <a href="https://arxiv.org/abs/2410.10762" rel="noopener">AFlow: Automating Agentic Workflow Generation</a>. Workflow search with execution feedback.</li>
+        <li><strong>[18] Meta-Harness</strong> — Lee et al., 2026. <a href="https://arxiv.org/abs/2603.28052" rel="noopener">Meta-Harness: End-to-End Optimization of Model Harnesses</a>. Optimizing frameworks with source, scores, and full traces.</li>
+        <li><strong>[19] Self-Harness</strong> — Zhang et al., 2026. <a href="https://arxiv.org/abs/2606.09498" rel="noopener">Self-Harness: Harnesses That Improve Themselves</a>. Framework edits driven by model-specific weaknesses.</li>
+        <li><strong>[20] TTHE</strong> — Nie et al., 2026. <a href="https://arxiv.org/abs/2607.08124" rel="noopener">TTHE: Test-Time Harness Evolution</a>. Test-time adaptation without final-answer labels; the version checked here is v2 dated 2026-10-12.</li>
+        </ul>
+        <h3>C. Memory, skills, and context evolution</h3>
+        <ul>
+        <li><strong>[24] Reflexion</strong> — Shinn et al., 2023. <a href="https://arxiv.org/abs/2303.11366" rel="noopener">Reflexion: Language Agents with Verbal Reinforcement Learning</a>. Verbal feedback and reflective memory.</li>
+        <li><strong>[22] Voyager</strong> — Wang et al., 2023. <a href="https://arxiv.org/abs/2305.16291" rel="noopener">Voyager: An Open-Ended Embodied Agent with Large Language Models</a>. Automatic curricula and executable skill libraries.</li>
+        <li><strong>[25] MemGPT</strong> — Packer et al., 2023. <a href="https://arxiv.org/abs/2310.08560" rel="noopener">MemGPT: Towards LLMs as Operating Systems</a>. Hierarchical memory and virtual context management.</li>
+        <li><strong>[23] Alita</strong> — Qiu et al., 2025. <a href="https://arxiv.org/abs/2505.20286" rel="noopener">Alita: Generalist Agent Enabling Scalable Agentic Reasoning with Minimal Predefinition and Maximal Self-Evolution</a>. A generalist-agent path with minimal predefinition.</li>
+        <li><strong>[1] ACE</strong> — Zhang et al., 2025. <a href="https://arxiv.org/abs/2510.04618" rel="noopener">Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models</a>. Incrementally maintained context playbooks.</li>
+        <li><strong>[30] MCE</strong> — Ye et al., 2026. <a href="https://arxiv.org/abs/2601.21557" rel="noopener">Meta Context Engineering via Agentic Skill Evolution</a>. Co-evolution of context artifacts and engineering skills.</li>
+        </ul>
+        <h3>D. Programmable runtimes and product implementations</h3>
+        <ul>
+        <li><strong>[21] CodeAct</strong> — Wang et al., 2024. <a href="https://arxiv.org/abs/2402.01030" rel="noopener">Executable Code Actions Elicit Better LLM Agents</a>. Executable code as the action interface.</li>
+        <li><strong>[7] RLM</strong> — Zhang, Kraska &amp; Khattab, 2025. <a href="https://arxiv.org/abs/2512.24601" rel="noopener">Recursive Language Models</a>. Programmatic long-context handling and recursive calls.</li>
+        <li><strong>[8] Prime Agent</strong> — Karten et al., 2026. <a href="https://www.primeintellect.ai/blog/prime-agent" rel="noopener">Prime Agent: A self-improving RLM agent</a>. An engineering stack combining RLM and Continual Harness.</li>
+        <li><strong>[29] DeepSeek Harness</strong> — DeepSeek-AI, 2026. <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener">DeepSeek Harness: Everything is a Plugin</a>. A pluginized runtime; the repository is marked developer preview.</li>
+        <li><strong>[34] Hermes Agent</strong> — Nous Research. <a href="https://hermes-agent.nousresearch.com/" rel="noopener">Hermes Agent official site</a>. Product entry for persistent memory and skill accumulation.</li>
+        </ul>
+        <h3>E. Foundational agent loops, tools, and API background</h3>
+        <p>These materials explain how agents work; citation alone does not make them RSI research.</p>
+        <ul>
+        <li><strong>[11] ReAct</strong> — Yao et al., ICLR 2023; preprint 2022. <a href="https://arxiv.org/abs/2210.03629" rel="noopener">ReAct: Synergizing Reasoning and Acting in Language Models</a>. The foundational reason–act interleaving paradigm.</li>
+        <li><strong>[9] Pi</strong> — <a href="https://github.com/badlogic/pi-mono/blob/main/packages/agent/README.md" rel="noopener">Agent core documentation</a>. Agent core docs.</li>
+        <li><strong>[10] OpenClaw</strong> — <a href="https://docs.openclaw.ai/concepts/agent-loop" rel="noopener">Agent loop</a>. Runtime-loop documentation.</li>
+        <li><strong>[12] Anthropic</strong> — 2025. <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk" rel="noopener">Building agents with the Claude Agent SDK</a>. Framework-engineering background.</li>
+        <li><strong>[13] Michael Bolin / OpenAI</strong> — 2026. <a href="https://openai.com/index/unrolling-the-codex-agent-loop/" rel="noopener">Unrolling the Codex agent loop</a>. An engineering teardown of an agent loop.</li>
+        <li><strong>[14] OpenAI</strong> — <a href="https://developers.openai.com/api/docs/guides/tools-web-search" rel="noopener">Web search</a>. Hosted-tool API docs.</li>
+        <li><strong>[28] OpenAI</strong> — <a href="https://developers.openai.com/api/docs/guides/function-calling" rel="noopener">Function calling</a>. Function-calling API docs.</li>
+        <li><strong>[31] Claude Code</strong> — <a href="https://github.com/anthropics/claude-code" rel="noopener">GitHub repository</a>. Coding-agent product reference.</li>
+        <li><strong>[32] Codex</strong> — <a href="https://github.com/openai/codex" rel="noopener">GitHub repository</a>. Coding-agent product reference.</li>
+        <li><strong>[33] OpenClaw</strong> — <a href="https://github.com/openclaw/openclaw" rel="noopener">GitHub repository</a>. Agent-system product reference.</li>
+        </ul>
+        <h3>F. Philosophical background</h3>
+        <ul>
+        <li><strong>[26] Personal identity</strong> — <a href="https://en.wikipedia.org/wiki/Personal_identity" rel="noopener">Wikipedia</a>. Background for the original’s discussion of continuity of the “self”; not a technical experimental basis.</li>
+        <li><strong>[27] Ship of Theseus</strong> — <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus" rel="noopener">Wikipedia</a>. Thought experiment on whether a system remains the same after its parts are replaced.</li>
+        </ul>
+        <h3>Suggested reading order</h3>
+        <p>If you read only six papers, try <strong>ACE → Meta-Harness → DGM → Hyperagents → AIDE² → TTHE</strong>: experience accumulation, framework optimization, self-modification, meta-level modification, recursive validation, and unlabeled online adaptation. Then return to the <a href="https://fibona.ai/blog/fibona-agent" rel="noopener">Fibona original</a>; it becomes easier to see which kind of architectural freedom it contributes—and which effects still need experiments to prove.</p>
+      </div>
+
+      <section class="comments" aria-labelledby="comments-title">
+        <h2 id="comments-title">Comments</h2>
+        <p class="comments-note">
+          Comments via <a href="https://giscus.app/" rel="noopener">Giscus</a> (GitHub Discussions). Sign in with GitHub to leave a comment.
+        </p>
+        <div class="giscus"></div>
+        <script src="https://giscus.app/client.js"
+          data-repo="ZimingWu020/rsi-ziming"
+          data-repo-id="R_kgDOViY71A"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOViY71M4DKWyk"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a href="../index.html" class="footer-name"><span class="brand-person" lang="en">rsi.ziming</span></a>
+      <p>Think, distill, practice. Let understanding take time.</p>
+      <p lang="en">Reflections on AI, research, and the way we grow.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../index.html">Reading</a>
+      <a href="index.html">Blog</a>
+      <a href="../about/index.html">About</a>
+    </nav>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

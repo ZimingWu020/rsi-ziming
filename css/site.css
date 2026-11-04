@@ -421,6 +421,23 @@ main { min-height: 65vh; }
 .article-body ul { padding-left: 1.2em; margin: 0 0 1.2em; }
 .article-body li { margin-bottom: .4em; }
 .article-body a { color: var(--accent); text-underline-offset: 4px; }
+.article-body h3 {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 1.6em 0 .55em;
+}
+.article-body blockquote {
+  margin: 0 0 1.2em;
+  padding: 0 0 0 1em;
+  border-left: 3px solid var(--line-strong);
+  color: var(--text-soft);
+}
+.article-body hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2.2em 0;
+}
 
 .comments {
   border-top: 1px solid var(--line);
