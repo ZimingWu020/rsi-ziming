@@ -399,10 +399,41 @@ main { min-height: 65vh; }
 }
 
 .article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem 1.1rem;
   color: var(--text-soft);
   font: 12px var(--mono);
   letter-spacing: .04em;
   margin-bottom: 36px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.lang-switch a {
+  color: var(--accent);
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.lang-switch a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.lang-switch [aria-current="page"] {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  padding-bottom: 1px;
 }
 
 .article-body {
