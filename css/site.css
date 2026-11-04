@@ -439,6 +439,33 @@ main { min-height: 65vh; }
   margin: 2.2em 0;
 }
 
+
+.article-figure {
+  margin: 1.75em 0 2em;
+  padding: 1rem 1rem 0.85rem;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.article-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+.article-figure figcaption {
+  margin: 0.75rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+
 .comments {
   border-top: 1px solid var(--line);
   margin-top: 48px;
